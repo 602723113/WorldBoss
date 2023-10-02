@@ -1,0 +1,100 @@
+boss:
+  1:
+    # 内部名, 用于标识
+    name: "测试Boss"
+    # Boss的名字
+    bossDisplayName: "&6&lBoss"
+    # 开启世界Boss的时间, 格式: 小时:分钟:秒
+    executeTime: "12:00:00"
+    # 最大人数
+    maxPlayer: 20
+    # 可无视最大人数限制就进入的权限
+    permission: "vip.1"
+    # 击杀boss的时间，时间到了没击杀，任务失败, 单位: 秒
+    timeToKill: 300
+    # ActionBar提示的剩余时间
+    timeTips: "&a&l时间剩余 &f&l%time% &a&l秒"
+    # 当boss生成时的全服通告
+    bossIsSpawn: "&f[&e公告&f] &f世界Boss %display_name%&r &f已经出现在城南遗迹, 请勇士加紧前往! /wb join %name%"
+    # 够钟时执行的指令
+    enterCommand:
+      - "say hello"
+    leaveCommand:
+      - "say 牛逼嗷"
+    # 排名奖励, 按顺序写, 1, 2, 3
+    rankReward:
+      1:
+        commands:
+          - "give %player_name% 264 64"
+          - "give %player_name% 264 64"
+        message: "&e尊敬的 %player_name%&e, 你已成功领取礼包: 榜一伤害礼包"
+      2:
+        commands:
+          - "give %player_name% 264 64"
+        message: "&e尊敬的 %player_name%&e, 你已成功领取礼包: 榜二伤害礼包"
+      3:
+        commands:
+          - "give %player_name% 1 64"
+        message: "&e尊敬的 %player_name%&e, 你已成功领取礼包: 榜三伤害礼包"
+
+    # 奖励
+    # 点数在写的时候务必请从最大的开始写
+    reward:
+      20000:
+        commands:
+          - "give %player_name% 264 64"
+          - "give %player_name% 264 64"
+        message: "&e尊敬的 %player_name%&e, 你已成功领取礼包: 2w伤害礼包"
+      20:
+        commands:
+          - "give %player_name% 264 64"
+        message: "&e尊敬的 %player_name%&e, 你已成功领取礼包: 20伤害礼包"
+      0:
+        commands:
+          - ""
+        message: "&e尊敬的 %player_name% 很遗憾, 您在本次的世界Boss中, 并没有打够礼包的输出, 本次你共打了 %damage% 点伤害"
+
+    # 玩家出生的位置
+    spawnLocation:
+      name: "world"
+      x: 0.0
+      y: 60.0
+      z: 0.0
+      yaw: 0.0
+      pitch: 0.0
+
+message:
+  help:
+    - "&e<< &6帮助信息 &e>>"
+    - ""
+    - "&e/wb join <内部名> &7进入对应的世界Boss副本"
+    - "&e/wb leave &7退出当前所在的世界Boss副本"
+    - ""
+    - "&e/wb run <内部名> &7强制开启该世界Boss副本(OP可用)"
+    - "&e/wb reload &7重载插件(OP可用)"
+  unknownCommand: "&c未知指令!"
+  noPermission: "&c权限不足!"
+  reloadSuccess: "&a重载成功!"
+  mustBeAPlayer: "&c你必须是一名玩家才能输入该指令!"
+  wrongParameter: "&e参数不正确! 请输入 &c/wb &e来查询该指令的正确用法!"
+  theBossDoesnotExist: "&c该Boss不存在!"
+  cannotJoinWorldBoss: "&e无法加入该世界Boss副本!"
+  youAreNotInWorldBoss: "&c你不在任何一个世界Boss副本中!"
+  joinWorldBoss: "&e加入世界Boss副本 %name% 成功!"
+  leaveWorldBoss: "&e离开世界Boss副本 %name% 成功!"
+  bossDoesnotDead: "&e世界Boss %display_name% 尚未死亡, 无法获得奖励!"
+  cannotUseOtherCommand: "&e你现在正在挑战副本中, 无法输入任何指令!"
+  bossIsFullOfPlayer: "这个世界Boss副本已经满人了!"
+  showStatisticsHead:
+    - "&6-------------------------------"
+    - "&e世界Boss: %displayName% &e伤害排名 本次世界Boss一共造成了 &c%all_damage% &e点伤害"
+    - " &e你打了 &c%my_damage% &e点伤害"
+  showStatisticsFormat: "&e第%count%名 - &c%player_name% &e死亡次数: &c%death% &e总计伤害: &c%damage% &e伤害占比: &c%percent%"
+  showStatisticsFoot:
+    - "&6-------------------------------"
+
+option:
+  # 允许在副本中使用的指令
+  permittedCommands:
+    - "/wb leave"
+    - "/say"

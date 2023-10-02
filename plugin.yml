@@ -1,0 +1,9 @@
+name: WorldBoss
+main: cc.zoyn.worldboss.WorldBoss
+version: 1.0
+author: Zoyn
+depend: [ProtocolLib]
+commands:
+  wb:
+    aliases: [worldboss, boss]
+    description: "The main command of WorldBoss"
